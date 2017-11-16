@@ -27,6 +27,56 @@ import UIKit
 //    return a
 //}
 
+public func removeCharsFrom(inputString: String) -> String {
+    
+    let cleanDashes = inputString.replacingOccurrences(of: "-", with: "")
+    let cleanSpaces = cleanDashes.replacingOccurrences(of: " ", with: "")
+    
+    print(cleanSpaces)
+    
+    return cleanSpaces
+}
+
+public func solution(_ S : inout String) -> String {
+    // write your code in Swift 3.0 (Linux)
+    
+    var emptiedString = removeCharsFrom(inputString: S)
+   var reformattedString = ""
+    
+    if emptiedString.characters.count > 3 {
+      
+        
+        for (index, char) in emptiedString.characters.enumerated() {
+            
+            if (emptiedString.characters.count - 4) > index {
+                if (index % 3) == 0 {
+                    reformattedString.append("-")
+                }
+                
+                reformattedString.append(char)
+            }
+            else {
+                // check reformatted chars
+                let lastChar = reformattedString.last
+                if lastChar == "-" {
+                    
+                }
+                
+                
+                
+            }
+            
+        }
+        
+    }
+    
+    return reformattedString
+}
+var str = "000000010---1    "
+solution(&str)
+
+
+
 func insertionSortA(_ array: [Int]) -> [Int] {
     var a = array
     for x in 1..<a.count {
@@ -55,3 +105,18 @@ func quicksort<T: Comparable>(_ a: [T]) -> [T] {
     
     return quicksort(less) + equal + quicksort(greater)
 }
+
+
+//func mergeSort(_ array: [Int]) -> [Int] {
+//    guard array.count > 1 else { return array }    // 1
+//
+//    let middleIndex = array.count / 2              // 2
+//
+//    let leftArray = mergeSort(Array(array[0..<middleIndex]))             // 3
+//
+//    let rightArray = mergeSort(Array(array[middleIndex..<array.count]))  // 4
+//
+//    return merge(leftPile: leftArray, rightPile: rightArray)             // 5
+//}
+
+
